@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Principal</title>
+    <link rel="stylesheet" href="stylesMain.css">
+    <script src="script.js" defer></script> <!-- Incluye tu archivo JavaScript aquí -->
+</head>
+
+<body>
+    <!-- Barra de Navegación -->
+    <header class="navbar">
+        <div class="nav-logo">
+            <h1>Exámenes de Conducir</h1>
+        </div>
+        <nav class="nav-menu">
+            <a href="#" class="nav-item" onclick="toggleOptions()">Citas</a>
+            <a href="#" class="nav-item">Facturación</a>
+            <a href="#" class="nav-item">Contacto</a>
+            <a href="#" class="nav-item">
+                <span class="user-icon">👤</span> Mi Cuenta
+            </a>
+        </nav>
+    </header>
+
+    <!-- Opciones de Citas -->
+    <div id="citas-options" class="hidden-options">
+        <div class="exam-option" onclick="handleExamSelection('practico')">Examen Práctico</div>
+        <div class="exam-option" onclick="handleExamSelection('teorico')">Examen Teórico</div>
+    </div>
+
+    <!-- Contenido Principal -->
+    <main class="content">
+        <h2>Bienvenido</h2>
+        <p>Selecciona una de las opciones de la barra de navegación para continuar.</p>
+        <div id="result" class="result"></div> <!-- Contenedor para mostrar la selección -->
+    </main>
+
+    <div class="carousel">
+        <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+        <div class="carousel-images">
+            <div class="carousel-image">
+                <img src="https://media.istockphoto.com/id/1493574434/es/foto/el-coche-se-precipita-a-lo-largo-de-la-carretera-al-atardecer-vista-lateral-de-ángulo-bajo.jpg?s=612x612&w=0&k=20&c=ShzqUhviox4jicYi8z1qIfBJRk7KGKsd23fct6wrGUI="
+                    alt="Descripción de la imagen 1">
+            </div>
+            <div class="carousel-image">
+                <img src="https://media.istockphoto.com/id/509360412/es/vector/carretera-señales-y-símbolos.jpg?s=612x612&w=0&k=20&c=XC8PJHV06rRTTYNK4yRgOX6Y3GLmeh4EbVsKcNMJDl4="
+                    alt="Descripción de la imagen 2">
+            </div>
+            <div class="carousel-image">
+                <img src="https://img.freepik.com/vector-gratis/ilustracion-hombre-analizando-lista-comprobacion_23-2148079799.jpg"
+                    alt="Descripción de la imagen 3">
+            </div>
+        </div>
+        <button class="next" onclick="moveSlide(1)">&#10095;</button>
+    </div>
+    <script src="carrusel.js"></script>
+    <script src="citas.js"></script>
+</body>
+
+</html>
