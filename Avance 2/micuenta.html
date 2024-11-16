@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Cuenta</title>
+    <link rel="stylesheet" href="stylesMiCuenta.css">
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <!-- Barra de Navegación -->
+    <header class="navbar">
+        <div class="nav-logo">
+            <h1>Exámenes de Conducir</h1>
+        </div>
+        <nav class="nav-menu">
+            <a href="#" class="nav-item" onclick="irAInicio()">Inicio</a>
+            <a href="#" class="nav-item" onclick="toggleOptions()">Citas</a>
+            <a href="#" class="nav-item">Facturación</a>
+            <a href="#" class="nav-item">Contacto</a>
+            <a href="#" style="background-color: rgb(254, 235, 190);;" class="nav-item">
+                <span class="user-icon">👤</span> Mi Cuenta
+            </a>
+        </nav>
+    </header>
+
+    <!-- Opciones de Citas -->
+     <script src="citas.js"></script>
+    <div id="citas-options" class="hidden-options">
+        <div class="exam-option" onclick="handleExamSelection('practico')">Examen Práctico</div>
+        <div class="exam-option" onclick="handleExamSelection('teorico')">Examen Teórico</div>
+    </div>
+
+    <!-- Datos Personales  -->
+    <h2 style="text-align: center;">Datos Personales</h2>
+    <div style="text-align: center;">
+        <label for="nombre_usuario">Usuario ✏</b><br><input class="dp_input" id="nombre_usuario" type="text" value="usuario950"><br>
+        <label for="numero_cedula">Número de Cédula ✏</b><br><input class="dp_input" id="numero_cedula" type="text" inputmode="numeric" pattern="[0-9]*" value="000000000"><br>
+        <label for="clave_usuario">Contraseña ✏</b><br><input class="dp_input" id="clave_usuario" type="password" value="password123"><br>
+        <label for="numero_telefono">Teléfono ✏</b><br><input class="dp_input" id="numero_telefono" type="text" inputmode="numeric" pattern="[0-9]*" value="00000000">
+    </div>
+    <br>
+    <h2 style="text-align: center;">Métodos de Pago</h2>
+    <div style="text-align: center; font-size: large;">
+        <select>
+            <option value=0>💳 Tarjeta terminada en 0000</option>
+            <option value=0>💳 Tarjeta terminada en 0001</option>
+            <option value=0>💳 Tarjeta terminada en 0002</option>
+        </select>
+        <br>
+        <button onclick="mostrarFormularioAgregar()">➕ Agregar </button>
+        <button>🗑 Borrar </button>
+
+        <!-- el formulario para agregar un metodo de pago -->
+        <form id="agregarForm" style="background-color: antiquewhite; display: none;" >
+            <h3>Agregar Método de Pago</h1>
+            <label for="numero_tarjeta">Num. Tarjeta</label><input id="numero_tarjeta", type="tel">
+            <label for="fecha_vencimiento_tarjeta">Fecha de Vencimiento</label><input id="fecha_vencimiento_tarjeta" type="month">
+            <label for="nombre_tarjeta">Nombre en Tarjeta</label><input id="nombre_tarjeta" type="text">
+            <label for="cvv_tarjeta">CVV</label><input id="cvv_tarjeta" type="number">
+            <br>
+            <button>✔ Agregar </button>
+            <button onclick="ocultarFormularioAgregar()">❌ Cancelar </button>
+        </form>
+    </div>
+
+</body>
+
+
+<script>
+// Javascript
+    function mostrarFormularioAgregar(){
+        document.getElementById("agregarForm").style.display = "block";
+    }
+    
+    function ocultarFormularioAgregar(){
+        document.getElementById("agregarForm").style.display = "none";
+    }
+</script>
+
+</html>
