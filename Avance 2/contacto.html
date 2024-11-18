@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es" >
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Cuenta</title>
+    <link rel="stylesheet" href="stylesContacto.css">
+    <script src="script.js"></script>
+</head>
+
+<body style="font-family: sans-serif">
+    <!-- Barra de Navegación -->
+    <header class="navbar">
+        <div class="nav-logo">
+            <h1>Exámenes de Conducir</h1>
+        </div>
+        <nav class="nav-menu">
+            <a href="#" class="nav-item" onclick="irAInicio()">Inicio</a>
+            <a href="#" class="nav-item" onclick="toggleOptions()">Citas</a>
+            <a href="#" class="nav-item">Facturación</a>
+            <a href="#" class="nav-item" style="background-color: rgb(254, 235, 190);">Contacto</a>
+            <a href="#" class="nav-item" onclick="irAMiCuenta()">
+                <span class="user-icon">👤</span> Mi Cuenta
+            </a>
+        </nav>
+    </header>
+
+    <!-- Opciones de Citas -->
+     <script src="citas.js"></script>
+    <div id="citas-options" class="hidden-options">
+        <div class="exam-option" onclick="handleExamSelection('practico')">Examen Práctico</div>
+        <div class="exam-option" onclick="handleExamSelection('teorico')">Examen Teórico</div>
+    </div>
+
+
+    <!-- CONTACTO -->
+    <h2 style="text-align: center;">Acerca</h2>
+    <br>
+    <p style="text-align: center;">El objetivo de esta página es facilitar los procesos<br> y trámites requeridos
+        para la realización de su examen de manejo,<br> tanto teórico como práctico.
+    </p>
+    
+    <br><br>
+
+    <!-- Espacio de soporte tecnico -->
+    <div style="text-align: center;">
+        <h2 style="text-align: center;">Soporte Técnico</h2>
+        <i style="text-align: center;">Si tiene problemas técnicos repórtelos en el espacio a continuación.
+        </i><br>
+        <textarea id="textarea_soporte_tecnico" placeholder="Describa su problema..." wrap="soft"></textarea><br>
+        <button>Reportar</button>
+    </div>
+
+    <br><br>
+
+    <!-- Espacio de retroalimentacion -->
+    <div style="text-align: center;">
+        <h2 style="text-align: center;">Retroalimentación</h2>
+        <i style="text-align: center;">Si tiene una sugerencia o retroalimentación para mejorar la página web descríbala en el espacio a continuación.
+        </i><br>
+        <textarea id="textarea_retroalimentacion" placeholder="Describa su idea o retroalimentación..." wrap="soft" cols="20"></textarea><br>
+        <button>Enviar Retroalimentación</button>
+    </div>
+
+
+</html>

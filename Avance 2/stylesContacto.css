@@ -3,7 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Roboto";
+    font-family: 'Roboto', sans-serif;
   }
   
   /* Estilo de la barra de navegación */
@@ -26,9 +26,16 @@
     gap: 20px;
   }
 
-/* Datos Personales Input */
-.dp_input{
-  border: 0;
+/* Input soporte tecnico / sugerencia */
+textarea{
+  text-align: left;
+  width: 550px;
+  height: 70px;
+  word-wrap: normal;
+  word-break: break-all;
+  border-radius: 9px;
+  font-size: large;
+  margin-top: 10px;
 }
 
 div{
@@ -55,6 +62,8 @@ select{
 button{
   font-size: large;
   margin: 4px;
+  border-radius: 9px;
+  padding: 4px;
 }
   
 input{
