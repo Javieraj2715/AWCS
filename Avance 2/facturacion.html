@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Facturacion</title>
-    <link rel="stylesheet" href="stylesMain.css">
+    <link rel="stylesheet" href="stylesFacturacion.css">
     <script src="script.js" defer></script> <!-- Incluye tu archivo JavaScript aquí -->
 </head>
 
@@ -33,9 +33,52 @@
     </div>
 
     <!-- Contenido Principal -->
-    <main class="content">
-        
-    </main>
+    <body>
+        <header>
+            <h1>Sistema de Facturación</h1>
+        </header>
+        <nav>
+            <a href="#pendientes">Lista de Pendientes</a>
+            <a href="#estado-cuenta">Estado de Cuenta</a>
+            <a href="#pagar">Pagar Ahora</a>
+        </nav>
+        <main>
+            <section id="pendientes">
+                <h2>Lista de Pendientes</h2>
+                <p>Aquí puedes ver todas las facturas pendientes de pago.</p>
+                <ul>
+                    <li>Factura #001 - $120.00</li>
+                    <li>Factura #002 - $80.00</li>
+                    <li>Factura #003 - $50.00</li>
+                </ul>
+            </section>
+    
+            <section id="estado-cuenta">
+                <h2>Estado de Cuenta</h2>
+                <p>Consulta tu estado de cuenta general:</p>
+                <ul>
+                    <li>Total Pendiente: $250.00</li>
+                    <li>Total Pagado: $750.00</li>
+                    <li>Último Pago: 12/11/2024</li>
+                </ul>
+            </section>
+    
+            <section id="pagar">
+                <h2>Pagar Ahora</h2>
+                <p>Selecciona una factura para pagar:</p>
+                <form action="#" method="POST">
+                    <label for="factura">Selecciona Factura:</label>
+                    <select id="factura" name="factura">
+                        <option value="001">Factura #001 - $120.00</option>
+                        <option value="002">Factura #002 - $80.00</option>
+                        <option value="003">Factura #003 - $50.00</option>
+                    </select>
+                    <br><br>
+                    <button type="submit">Pagar</button>
+                </form>
+            </section>
+        </main>
+    </body>
 
 
 
