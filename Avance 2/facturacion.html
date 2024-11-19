@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facturacion</title>
+    <link rel="stylesheet" href="stylesMain.css">
+    <script src="script.js" defer></script> <!-- Incluye tu archivo JavaScript aquí -->
+</head>
+
+<body>
+    <!-- Barra de Navegación -->
+    <header class="navbar">
+        <div class="nav-logo">
+            <h1>Exámenes de Conducir</h1>
+        </div>
+        <nav class="nav-menu">
+            <a href="#" class="nav-item" style="background-color: rgb(254, 235, 190);" onclick="volverAInicio()">Inicio</a>
+            <a href="#" class="nav-item" onclick="toggleOptions()">Citas</a>
+            <a href="#" class="nav-item" onclick="irAFacturacion()">Facturacion</a>
+            <a href="#" class="nav-item" onclick="irAContacto()">Contacto</a>
+            <a href="#" class="nav-item" onclick="irAMiCuenta()">
+                <span class="user-icon">👤</span> Mi Cuenta
+            </a>
+        </nav>
+    </header>
+
+    <!-- Opciones de Citas -->
+    <div id="citas-options" class="hidden-options">
+        <div class="exam-option" onclick="handleExamSelection('practico')">Examen Práctico</div>
+        <div class="exam-option" onclick="handleExamSelection('teorico')">Examen Teórico</div>
+    </div>
+
+    <!-- Contenido Principal -->
+    <main class="content">
+        
+    </main>
+
+
+
+    <script src="citas.js"></script>
+</body>
+
+</html>
