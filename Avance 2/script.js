@@ -10,3 +10,7 @@ function irAMiCuenta(){
 function irAContacto(){
     window.location = "contacto.html"
 }
+
+function irAFacturacion(){
+    window.location = "facturacion.html"
+}
