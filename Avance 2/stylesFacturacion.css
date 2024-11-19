@@ -1,0 +1,185 @@
+/* Reiniciar márgenes y fuentes */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  /* Estilo de la barra de navegación */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: #EBD371;
+    color: #000000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .nav-logo h1 {
+    font-size: 1.5rem;
+  }
+  
+  .nav-menu {
+    display: flex;
+    gap: 20px;
+  }
+
+/* Input soporte tecnico / sugerencia */
+textarea{
+  text-align: left;
+  width: 550px;
+  height: 70px;
+  word-wrap: normal;
+  word-break: break-all;
+  border-radius: 9px;
+  font-size: large;
+  margin-top: 10px;
+}
+
+div{
+  display: block;
+}
+
+label{
+  font-weight: bold;
+}
+
+b{
+  text-align: center;
+}
+
+h2{
+  background-color: bisque;
+}
+
+select{
+  font-size: large;
+  margin: 13px;
+}
+
+button{
+  font-size: large;
+  margin: 4px;
+  border-radius: 9px;
+  padding: 4px;
+}
+  
+input{
+  border: 2;
+  text-align: center;
+  font-size: large;
+  margin-left: 10px;
+  margin-right: 40px;
+}
+
+body{
+  font-size: large;
+  text-align: center
+}
+
+  .nav-item {
+    color: #000000;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+  
+  .nav-item:hover {
+    background-color: #AE8342;
+  }
+  
+  .user-icon {
+    margin-right: 5px;
+  }
+  
+  /* Estilo del contenido principal */
+  .content {
+    padding: 40px;
+    text-align: center;
+  }
+  
+  .content h2 {
+    font-size: 2rem;
+    color: #AE8342;
+    margin-bottom: 20px;
+  }
+  
+  .content p {
+    font-size: 1.2rem;
+    color: #555;
+  }
+  
+  .carousel {
+    position: relative;
+    max-width: 400px; /* Ajusta el ancho máximo del carrusel */
+    margin: auto;
+    overflow: hidden;
+    border-radius: 10px;
+  }
+
+  .carousel-images {
+    display: flex;
+    transition: transform 0.5s ease;
+  }
+
+  .carousel-image {
+    min-width: 100%;
+    transition: opacity 1s ease;
+  }
+
+  .carousel-image img {
+    width: 100%;
+    border-radius: 10px;
+  }
+
+  /* Botones de navegación */
+  .prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.7);
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%;
+    font-size: 18px;
+    z-index: 10;
+  }
+
+  .prev {
+    left: 10px;
+  }
+
+  .next {
+    right: 10px;
+  }
+
+  .hidden-options {
+    display: none; /* Oculta el elemento */
+}
+
+.exam-option {
+    background-color: #AE8342; /* Color de fondo */
+    color: white; /* Color del texto */
+    padding: 15px; /* Espaciado interno */
+    margin: 10px 0; /* Margen superior e inferior */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cursor tipo puntero */
+    text-align: center; /* Centrar el texto */
+    transition: background-color 0.3s; /* Transición suave */
+}
+
+.exam-option:hover {
+    background-color: #808b29; /* Color de fondo al pasar el mouse */
+}
+
+.result {
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+
