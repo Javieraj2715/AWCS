@@ -14,8 +14,13 @@ function toggleOptions() {
 function handleExamSelection(type) {
     const resultDiv = document.getElementById('result');
     if (type === 'practico') {
-        resultDiv.innerHTML = 'Has seleccionado el Examen Práctico.';
+        window.location = "practico.html"
+      
     } else if (type === 'teorico') {
-        resultDiv.innerHTML = 'Has seleccionado el Examen Teórico.';
+       
+        window.location = "ExamenTeorico.html";
     }
 }
+
+
+

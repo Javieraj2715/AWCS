@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página Principal</title>
     <link rel="stylesheet" href="stylesMain.css">
-    <script src="script.js" defer></script> <!-- Incluye el archivo JavaScript aquí -->
+     <!-- Incluye el archivo JavaScript aquí -->
 </head>
 
 <body>
@@ -16,9 +16,9 @@
             <h1>Exámenes de Conducir</h1>
         </div>
         <nav class="nav-menu">
-            <a href="#" class="nav-item" style="background-color: rgb(254, 235, 190);" onclick="volverAInicio()">Inicio</a>
+            <a href="#" class="nav-item" style="background-color: rgb(254, 235, 190);" onclick="irAInicio()">Inicio</a>
             <a href="#" class="nav-item" onclick="toggleOptions()">Citas</a>
-            <a href="#" class="nav-item">Facturación</a>
+            <a href="#" class="nav-item" onclick="irAFacturacion()">Facturacion</a>
             <a href="#" class="nav-item" onclick="irAContacto()">Contacto</a>
             <a href="#" class="nav-item" onclick="irAMiCuenta()">
                 <span class="user-icon">👤</span> Mi Cuenta
@@ -27,6 +27,7 @@
     </header>
 
     <!-- Opciones de Citas -->
+    <script src="citas.js"></script>
     <div id="citas-options" class="hidden-options">
         <div class="exam-option" onclick="handleExamSelection('practico')">Examen Práctico</div>
         <div class="exam-option" onclick="handleExamSelection('teorico')">Examen Teórico</div>
@@ -58,7 +59,8 @@
         <button class="next" onclick="moveSlide(1)">&#10095;</button>
     </div>
     <script src="carrusel.js"></script>
-    <script src="citas.js"></script>
+  
+    <script src="script.js" defer></script>
 </body>
 
 </html>

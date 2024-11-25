@@ -14,3 +14,7 @@ function irAContacto(){
 function irAFacturacion(){
     window.location = "facturacion.html"
 }
+
+function irATeorico(){
+    window.location = "teorico.html"
+}
