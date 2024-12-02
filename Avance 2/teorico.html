@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examen Teorico</title>
+    <link rel="stylesheet" href="stylesTeorico.css">
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <!-- Barra de Navegación -->
+    <header class="navbar">
+        <div class="nav-logo">
+            <h1>Exámenes de Conducir</h1>
+        </div>
+        <nav class="nav-menu">
+            <a href="#" class="nav-item" onclick="irAInicio()">Inicio</a>
+            <a href="#" class="nav-item" onclick="toggleOptions()">Citas</a>
+            <a href="#" class="nav-item" onclick="irAFacturacion()">Facturacion</a>
+            <a href="#" class="nav-item" onclick="irAContacto()">Contacto</a>
+            <a href="#" style="background-color: rgb(254, 235, 190);;" class="nav-item">
+                <span class="user-icon">👤</span> Mi Cuenta
+            </a>
+        </nav>
+    </header>
+
+    <!-- Opciones de Citas -->
+     <script src="citas.js"></script>
+    <div id="citas-options" class="hidden-options">
+        <div class="exam-option" onclick="handleExamSelection('practico')">Examen Práctico</div>
+        <div class="exam-option" onclick="handleExamSelection('teorico')">Examen Teórico</div>
+    </div>
+
+    <div class="container">
+        <h1>Matricular Examen Teórico</h1>
+        <form id="examForm">
+            <div class="form-group">
+                <label for="name">Nombre completo:</label>
+                <input type="text" id="name" name="name" placeholder="Ingresa tu nombre completo" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Correo electrónico:</label>
+                <input type="email" id="email" name="email" placeholder="Ingresa tu correo electrónico" required>
+            </div>
+            <div class="form-group">
+                <label for="id">Número de identificación:</label>
+                <input type="text" id="id" name="id" placeholder="Ingresa tu número de cédula o identificación" required>
+            </div>
+            <div class="form-group">
+                <label for="date">Fecha del examen:</label>
+                <input type="date" id="date" name="date" required>
+            </div>
+            <div class="form-group">
+                <label for="time">Horario del examen:</label>
+                <select id="time" name="time" required>
+                    <option value="" disabled selected>Selecciona un horario</option>
+                    <option value="8:00">8:00 AM</option>
+                    <option value="10:00">10:00 AM</option>
+                    <option value="1:00">1:00 PM</option>
+                    <option value="3:00">3:00 PM</option>
+                </select>
+            </div>
+            <button type="submit">Confirmar Inscripción</button>
+        </form>
+        <div class="confirmation" id="confirmation">
+            ¡Inscripción completada con éxito! Revisa tu correo para más detalles.
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("examForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            document.getElementById("confirmation").style.display = "block";
+        });
+    </script>
+
+    
+</body>
+
+
+</html>
