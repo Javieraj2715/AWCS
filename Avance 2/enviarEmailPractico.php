@@ -32,8 +32,8 @@ try {
 
     // Contenido del correo
     $mail->isHTML(true);
-    $mail->Subject = 'Confirmación de inscripción al examen teórico';
-    $mail->Body    = "¡Hola $name!<br><br>Has sido inscrito exitosamente en el examen teórico.<br><br>
+    $mail->Subject = 'Confirmación de inscripción al examen practico';
+    $mail->Body    = "¡Hola $name!<br><br>Has sido inscrito exitosamente en el examen practico.<br><br>
                       <strong>Detalles del examen:</strong><br>
                       Número de identificación: $id<br>
                       Provincia: $province<br>

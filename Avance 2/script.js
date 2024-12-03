@@ -4,7 +4,7 @@ function irAInicio(){
 }
 
 function irAMiCuenta(){
-    window.location = "micuenta.html"
+    window.location = "micuenta.php"
 }
 
 function irAContacto(){

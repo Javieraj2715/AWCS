@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Examen Teorico</title>
+    <title>Examen Practico</title>
     <link rel="stylesheet" href="stylesExamenes.css">
     <script src="script.js"></script>
 </head>
@@ -18,7 +18,7 @@
         <nav class="nav-menu">
             <a href="#" class="nav-item" onclick="irAInicio()">Inicio</a>
             <a href="#" class="nav-item" onclick="toggleOptions()">Citas</a>
-            <a href="#" class="nav-item" onclick="irAFacturacion()">Facturacion</a>
+            <a href="#" class="nav-item" onclick="irAFacturacion()">Facturación</a>
             <a href="#" class="nav-item" onclick="irAContacto()">Contacto</a>
             <a href="#" class="nav-item" onclick="irAMiCuenta()">
                 <span class="user-icon">👤</span> Mi Cuenta
@@ -27,7 +27,7 @@
     </header>
 
     <!-- Opciones de Citas -->
-     <script src="citas.js"></script>
+    <script src="citas.js"></script>
     <div id="citas-options" class="hidden-options">
         <div class="exam-option" onclick="handleExamSelection('practico')">Examen Práctico</div>
         <div class="exam-option" onclick="handleExamSelection('teorico')">Examen Teórico</div>
@@ -35,7 +35,7 @@
 
     <div class="container">
         <h1>Matricular Examen Practico</h1>
-        <form id="examForm">
+        <form id="examForm" action="enviarEmailPractico.php" method="POST">
             <div class="form-group">
                 <label for="name">Nombre completo:</label>
                 <input type="text" id="name" name="name" placeholder="Ingresa tu nombre completo" required>
@@ -47,6 +47,19 @@
             <div class="form-group">
                 <label for="id">Número de identificación:</label>
                 <input type="text" id="id" name="id" placeholder="Ingresa tu número de cédula o identificación" required>
+            </div>
+            <div class="form-group">
+                <label for="province">Provincia:</label>
+                <select id="province" name="province" required>
+                    <option value="" disabled selected>Selecciona una provincia</option>
+                    <option value="San José">San José</option>
+                    <option value="Alajuela">Alajuela</option>
+                    <option value="Heredia">Heredia</option>
+                    <option value="Cartago">Cartago</option>
+                    <option value="Guanacaste">Guanacaste</option>
+                    <option value="Puntarenas">Puntarenas</option>
+                    <option value="Limón">Limón</option>
+                </select>
             </div>
             <div class="form-group">
                 <label for="date">Fecha del examen:</label>
@@ -64,20 +77,18 @@
             </div>
             <button type="submit">Confirmar Inscripción</button>
         </form>
-        <div class="confirmation" id="confirmation">
+        
+        <div class="confirmation" id="confirmation" style="display: none;">
             ¡Inscripción completada con éxito! Revisa tu correo para más detalles.
         </div>
     </div>
 
     <script>
-        document.getElementById("examForm").addEventListener("submit", function(event) {
-            event.preventDefault();
-            document.getElementById("confirmation").style.display = "block";
-        });
+       document.getElementById("examForm").addEventListener("submit", function(event) {
+        
+           document.getElementById("confirmation").style.display = "block";
+       });
     </script>
-
-    
 </body>
-
 
 </html>

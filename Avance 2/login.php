@@ -1,4 +1,6 @@
 <?php
+session_start(); // Inicia la sesión
+
 $conexion = new mysqli("localhost", "JAVIER", "123", "proyectofinalg8");
 
 if ($conexion->connect_error) {
@@ -20,6 +22,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         // Verifica la contraseña
         if (password_verify($contraseña, $row['Password'])) {
+            // Almacena los datos del usuario en la sesión
+            $_SESSION['usuario'] = [
+                'cedula' => $row['Cedula'],
+                'nombre' => $row['nombre'],
+                'primerApellido' => $row['Primer_Apellido'],
+                'segundoApellido' => $row['Segundo_Apellido'],
+                'email' => $row['Correo_Electronico'],
+                'telefono' => $row['Numero_Telefono']
+            ];
+
             // Redirige al área principal
             header("Location: main.html");
             exit();
