@@ -8,6 +8,9 @@ if (!isset($_SESSION['usuario'])) {
 
 // Obtén los datos del usuario desde la sesión
 $usuario = $_SESSION['usuario'];
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -22,6 +25,8 @@ $usuario = $_SESSION['usuario'];
 </head>
 
 <body>
+    
+
     <header class="navbar">
         <div class="nav-logo">
             <h1>Exámenes de Conducir</h1>
@@ -44,16 +49,26 @@ $usuario = $_SESSION['usuario'];
         <p><strong>Correo Electrónico:</strong> <?php echo $usuario['email']; ?></p>
         <p><strong>Teléfono:</strong> <?php echo $usuario['telefono']; ?></p>
 
-        <form id="agregarForm" style="background-color: antiquewhite;" >
-            <h3>Agregar Método de Pago</h1>
-            <label for="numero_tarjeta">Num. Tarjeta</label><input id="numero_tarjeta", type="tel">
-            <label for="fecha_vencimiento_tarjeta">Fecha de Vencimiento</label><input id="fecha_vencimiento_tarjeta" type="month">
-            <label for="nombre_tarjeta">Nombre en Tarjeta</label><input id="nombre_tarjeta" type="text">
-            <label for="cvv_tarjeta">CVV</label><input id="cvv_tarjeta" type="number">
-            <br>
-            <button>✔ Agregar </button>
-            <button onclick="ocultarFormularioAgregar()">❌ Cancelar </button>
-        </form>
+        <form id="agregarForm"  style="background-color: antiquewhite;" onsubmit="agregarMetodo(event)">
+    <h3>Agregar Método de Pago</h3>
+    <label for="numero_tarjeta">Num. Tarjeta</label>
+    <input id="numero_tarjeta" type="tel" placeholder="1234 5678 9012 3456" required>
+    <label for="fecha_vencimiento_tarjeta">Fecha de Vencimiento</label>
+    <input id="fecha_vencimiento_tarjeta" type="month" required>
+    <label for="nombre_tarjeta">Nombre en Tarjeta</label>
+    <input id="nombre_tarjeta" type="text" placeholder="Nombre del titular" required>
+    <label for="cvv_tarjeta">CVV</label>
+    <input id="cvv_tarjeta" type="number" placeholder="123" required>
+    <br>
+    <button type="submit">✔ Agregar</button>
+    <button type="button" onclick="ocultarFormularioAgregar()">❌ Cancelar</button>
+</form>
+        <div style="text-align: center; margin-top: 30px;">
+            <h3>Métodos de Pago</h3>
+            <div id="metodosPago"></div> <!-- Aquí se mostrarán las tarjetas -->
+        </div>
+
+
     </div>
     
 

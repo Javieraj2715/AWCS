@@ -13,8 +13,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $contraseña = $_POST['contraseña'];
 
     // Busca al usuario en la base de datos
-    $sql = "SELECT * FROM usuarios WHERE Correo_Electronico = '$usuario'";
-    $result = $conexion->query($sql);
+    $sql = "SELECT * FROM usuarios WHERE Correo_Electronico = ?";
+    $stmt = $conexion->prepare($sql);
+    $stmt->bind_param("s", $usuario);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
     // Si el usuario existe
     if ($result->num_rows > 0) {
@@ -24,8 +27,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (password_verify($contraseña, $row['Password'])) {
             // Almacena los datos del usuario en la sesión
             $_SESSION['usuario'] = [
-                'cedula' => $row['Cedula'],
-                'nombre' => $row['nombre'],
+                'cedula' => $row['Cedula'], // Usamos 'Cedula' como identificador
+                'nombre' => $row['Nombre'],
                 'primerApellido' => $row['Primer_Apellido'],
                 'segundoApellido' => $row['Segundo_Apellido'],
                 'email' => $row['Correo_Electronico'],
@@ -41,8 +44,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } else {
         echo "Usuario no encontrado.";
     }
+
+    $stmt->close();
 }
 
-// Cierra la conexión
 $conexion->close();
 ?>
