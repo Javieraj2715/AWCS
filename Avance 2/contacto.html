@@ -49,7 +49,9 @@
         <i style="text-align: center;">Si tiene problemas técnicos repórtelos en el espacio a continuación.
         </i><br>
         <textarea id="textarea_soporte_tecnico" placeholder="Describa su problema..." wrap="soft"></textarea><br>
-        <button>Reportar</button>
+        <button id="boton_soporte" onclick="onClickSoporte()">Reportar</button>
+        <br>
+        <b id="output_soporte" style="text-align: center; display: none;"></b>
     </div>
 
     <br><br>
@@ -60,8 +62,49 @@
         <i style="text-align: center;">Si tiene una sugerencia o retroalimentación para mejorar la página web descríbala en el espacio a continuación.
         </i><br>
         <textarea id="textarea_retroalimentacion" placeholder="Describa su idea o retroalimentación..." wrap="soft" cols="20"></textarea><br>
-        <button>Enviar Retroalimentación</button>
+        <button id="boton_retro" onclick="onClickRetroalimentacion()">Enviar Retroalimentación</button>
+        <br>
+        <b id="output_retroalimentacion" style="text-align: center; display: none;"></b>
     </div>
 
+    <script>
+        //JavaScript
+        function onClickSoporte(){
+            let textarea = document.getElementById("textarea_soporte_tecnico");
+            let boton = document.getElementById("boton_soporte");
+            let output = document.getElementById("output_soporte");
 
+            output.style.display = "block";
+
+            if(textarea.value.length > 0){
+                output.style.backgroundColor = "palegreen"
+                output.innerHTML = "Enviado exitosamente."
+                
+                boton.style.display = "none";
+                textarea.style.display = "none";
+            }else{
+                output.style.backgroundColor = "lightpink"
+                output.innerHTML = "Campo de texto vacío. Escriba algo y vuelva a intentar."
+            }
+        }
+
+        function onClickRetroalimentacion(){
+            let textarea = document.getElementById("textarea_retroalimentacion");
+            let boton = document.getElementById("boton_retro");
+            let output = document.getElementById("output_retroalimentacion");
+
+            output.style.display = "block";
+
+            if(textarea.value.length > 0){
+                output.style.backgroundColor = "palegreen"
+                output.innerHTML = "Enviado exitosamente."
+                
+                boton.style.display = "none";
+                textarea.style.display = "none";
+            }else{
+                output.style.backgroundColor = "lightpink"
+                output.innerHTML = "Campo de texto vacío. Escriba algo y vuelva a intentar."
+            }
+        }
+    </script>
 </html>
