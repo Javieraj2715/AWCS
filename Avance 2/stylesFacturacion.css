@@ -1,185 +1,208 @@
-/* Reiniciar márgenes y fuentes */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
-  }
-  
-  /* Estilo de la barra de navegación */
-  .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 30px;
-    background-color: #EBD371;
-    color: #000000;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  .nav-logo h1 {
-    font-size: 1.5rem;
-  }
-  
-  .nav-menu {
-    display: flex;
-    gap: 20px;
-  }
+/* Estilo general */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+  color: #333;
+  line-height: 1.6;
+}
 
-/* Input soporte tecnico / sugerencia */
-textarea{
-  text-align: left;
-  width: 550px;
-  height: 70px;
-  word-wrap: normal;
-  word-break: break-all;
-  border-radius: 9px;
-  font-size: large;
+/* Barra de Navegación */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: #EBD371;
+  color: #000000;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.nav-logo h1 {
+  font-size: 1.5rem;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-item {
+  color: #000000;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 8px 12px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.nav-item:hover {
+  background-color: #AE8342;
+}
+
+.user-icon {
+  margin-right: 5px;
+}
+
+/* Encabezados */
+h1, h2 {
+  text-align: center;
   margin-top: 10px;
+  color: #333;
 }
 
-div{
-  display: block;
+h1 {
+  font-size: 2em;
+  margin-bottom: 20px;
 }
 
-label{
+h2 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.hidden-options {
+  display: none; /* Oculta el elemento por defecto */
+}
+
+
+/* Contenedor Principal */
+main {
+  max-width: 800px;
+  margin: 20px auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Secciones */
+section {
+  margin-bottom: 30px;
+  padding: 10px 20px;
+  background: #fafafa;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+section h2 {
+  border-bottom: 2px solid #f0c14b;
+  padding-bottom: 5px;
+}
+
+/* Listas de Facturas */
+#listaPendientes li, #estadoCuenta li {
+  list-style: none;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+#listaPendientes li:last-child, #estadoCuenta li:last-child {
+  border-bottom: none;
+}
+
+/* Formulario de Pago */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+label {
+  font-weight: bold;
+  color: #555;
+}
+
+select {
+  padding: 8px;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #333;
+}
+
+button {
+  padding: 10px;
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background 0.3s;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+button:hover:not(:disabled) {
+  background-color: #218838;
+}
+
+/* Mensajes de Estado */
+#estadoCuenta {
+  background: #e9f7f7;
+  color: #0073e6;
+  border-radius: 5px;
+  padding: 15px;
+  text-align: center;
+}
+
+/* Dropdown de Tarjetas */
+select:focus {
+  outline: none;
+  border-color: #0073e6;
+  box-shadow: 0 0 5px rgba(0, 115, 230, 0.5);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 10px 0;
+  background-color: #f0c14b;
+  margin-top: 20px;
+  color: #333;
   font-weight: bold;
 }
 
-b{
-  text-align: center;
-}
-
-h2{
-  background-color: bisque;
-}
-
-select{
-  font-size: large;
-  margin: 13px;
-}
-
-button{
-  font-size: large;
-  margin: 4px;
-  border-radius: 9px;
-  padding: 4px;
-}
-  
-input{
-  border: 2;
-  text-align: center;
-  font-size: large;
-  margin-left: 10px;
-  margin-right: 40px;
-}
-
-body{
-  font-size: large;
-  text-align: center
-}
-
-  .nav-item {
-    color: #000000;
-    text-decoration: none;
-    font-size: 1rem;
-    padding: 8px 12px;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-  }
-  
-  .nav-item:hover {
-    background-color: #AE8342;
-  }
-  
-  .user-icon {
-    margin-right: 5px;
-  }
-  
-  /* Estilo del contenido principal */
-  .content {
-    padding: 40px;
-    text-align: center;
-  }
-  
-  .content h2 {
-    font-size: 2rem;
-    color: #AE8342;
-    margin-bottom: 20px;
-  }
-  
-  .content p {
-    font-size: 1.2rem;
-    color: #555;
-  }
-  
-  .carousel {
-    position: relative;
-    max-width: 400px; /* Ajusta el ancho máximo del carrusel */
-    margin: auto;
-    overflow: hidden;
-    border-radius: 10px;
+/* Responsividad */
+@media (max-width: 768px) {
+  .navbar {
+      flex-direction: column;
+      text-align: center;
   }
 
-  .carousel-images {
-    display: flex;
-    transition: transform 0.5s ease;
+  .nav-menu {
+      flex-direction: column;
+      gap: 10px;
   }
 
-  .carousel-image {
-    min-width: 100%;
-    transition: opacity 1s ease;
+  main {
+      padding: 10px;
   }
-
-  .carousel-image img {
-    width: 100%;
-    border-radius: 10px;
-  }
-
-  /* Botones de navegación */
-  .prev, .next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(255, 255, 255, 0.7);
-    border: none;
-    cursor: pointer;
-    padding: 10px;
-    border-radius: 50%;
-    font-size: 18px;
-    z-index: 10;
-  }
-
-  .prev {
-    left: 10px;
-  }
-
-  .next {
-    right: 10px;
-  }
-
-  .hidden-options {
-    display: none; /* Oculta el elemento */
 }
 
 .exam-option {
-    background-color: #AE8342; /* Color de fondo */
-    color: white; /* Color del texto */
-    padding: 15px; /* Espaciado interno */
-    margin: 10px 0; /* Margen superior e inferior */
-    border-radius: 5px; /* Bordes redondeados */
-    cursor: pointer; /* Cursor tipo puntero */
-    text-align: center; /* Centrar el texto */
-    transition: background-color 0.3s; /* Transición suave */
+  background-color: #AE8342; /* Color de fondo */
+  color: white; /* Color del texto */
+  padding: 15px; /* Espaciado interno */
+  margin: 10px 0; /* Margen superior e inferior */
+  border-radius: 5px; /* Bordes redondeados */
+  cursor: pointer; /* Cursor tipo puntero */
+  text-align: center; /* Centrar el texto */
+  transition: background-color 0.3s; /* Transición suave */
 }
 
 .exam-option:hover {
-    background-color: #808b29; /* Color de fondo al pasar el mouse */
+  background-color: #808b29; /* Color de fondo al pasar el mouse */
 }
 
 .result {
-    margin-top: 20px;
-    font-size: 18px;
+  margin-top: 20px;
+  font-size: 18px;
 }
-
-

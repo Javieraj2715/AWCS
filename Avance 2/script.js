@@ -1,22 +1,22 @@
-// Funciones para cambiar la pagina
-function irAInicio(){
-    window.location = "main.html"
+// Funciones para cambiar la página
+function irAInicio() {
+    window.location = "main.html";
 }
 
-function irAMiCuenta(){
-    window.location = "micuenta.php"
+function irAMiCuenta() {
+    window.location = "micuenta.php";
 }
 
-function irAContacto(){
-    window.location = "contacto.html"
+function irAContacto() {
+    window.location = "contacto.html";
 }
 
-function irAFacturacion(){
-    window.location = "facturacion.html"
+function irAFacturacion() {
+    window.location = "facturacion.html";
 }
 
-function irATeorico(){
-    window.location = "teorico.html"
+function irATeorico() {
+    window.location = "teorico.html";
 }
 
 // Lista para almacenar las tarjetas
@@ -30,19 +30,15 @@ function agregarMetodo(event) {
     const fechaVencimiento = document.getElementById("fecha_vencimiento_tarjeta").value;
     const nombreTarjeta = document.getElementById("nombre_tarjeta").value;
 
-    console.log("Fecha de vencimiento enviada:", fechaVencimiento); // Verifica qué valor se está enviando
+    console.log("Fecha de vencimiento enviada:", fechaVencimiento); // Depuración
 
     fetch("guardarTarjeta.php", {
         method: "POST",
-        headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
-        },
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: `numero=${numeroTarjeta}&vencimiento=${fechaVencimiento}&nombre=${nombreTarjeta}`,
     })
         .then(response => {
-            if (!response.ok) {
-                throw new Error(`Error HTTP: ${response.status}`);
-            }
+            if (!response.ok) throw new Error(`Error HTTP: ${response.status}`);
             return response.json();
         })
         .then(data => {
@@ -57,91 +53,194 @@ function agregarMetodo(event) {
         })
         .catch(error => {
             console.error("Error al guardar tarjeta:", error);
-            alert("Hubo un problema al guardar la tarjeta. Revisa la consola.");
+            alert("Hubo un problema al guardar la tarjeta.");
         });
 }
 
+// Funcion para cargarTarjetas
 
-
-
-// Función para mostrar las tarjetas
-function cargarTarjetas() {
+function cargarTarjetas(context = "metodosPago") {
     fetch("cargarTarjeta.php")
         .then(response => {
             console.log("Estado HTTP:", response.status);
-            if (!response.ok) {
-                throw new Error(`Error HTTP: ${response.status}`);
-            }
+            if (!response.ok) throw new Error(`Error HTTP: ${response.status}`);
             return response.json();
         })
         .then(data => {
-            console.log("Datos cargados:", data); // Verifica el contenido aquí
-            const contenedor = document.getElementById("metodosPago");
-            contenedor.innerHTML = "";
+            console.log("Tarjetas cargadas:", data);
 
-            if (data.length === 0) {
-                contenedor.innerHTML = "<p>No hay métodos de pago registrados.</p>";
-                return;
+            if (context === "metodosPago") {
+                const contenedor = document.getElementById("metodosPago");
+
+                if (!contenedor) {
+                    console.warn("Elemento 'metodosPago' no encontrado. No se ejecuta cargarTarjetas() en este contexto.");
+                    return;
+                }
+
+                contenedor.innerHTML = ""; // Limpia el contenedor
+
+                if (data.length === 0) {
+                    contenedor.innerHTML = "<p>No hay métodos de pago registrados.</p>";
+                    return;
+                }
+
+                // Mostrar las tarjetas en miCuenta.php
+                data.forEach((tarjeta) => {
+                    const tarjetaDiv = document.createElement("div");
+                    tarjetaDiv.style =
+                        "margin-bottom: 15px; background: #fff59d; padding: 10px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);";
+
+                    tarjetaDiv.innerHTML = `
+                        <p><strong>Tarjeta:</strong> ${tarjeta.numero}</p>
+                        <p><strong>Vencimiento:</strong> ${tarjeta.vencimiento}</p>
+                        <p><strong>Nombre:</strong> ${tarjeta.nombre}</p>
+                        <button style="background: red; color: white; padding: 5px 10px; border: none; border-radius: 5px; cursor: pointer;" onclick="eliminarTarjeta('${tarjeta.numero}')">Eliminar</button>
+                    `;
+                    contenedor.appendChild(tarjetaDiv);
+                });
+            } else if (context === "tarjetaDropdown") {
+                const selectTarjeta = document.getElementById("tarjeta");
+
+                if (!selectTarjeta) {
+                    console.warn("Elemento 'tarjeta' no encontrado. No se ejecuta cargarTarjetas() en este contexto.");
+                    return;
+                }
+
+                selectTarjeta.innerHTML = ""; // Limpia el dropdown
+
+                if (data.length === 0) {
+                    selectTarjeta.innerHTML = '<option value="">No hay tarjetas registradas</option>';
+                    return;
+                }
+
+                // Cargar las tarjetas en el dropdown
+                data.forEach((tarjeta) => {
+                    const option = document.createElement("option");
+                    option.value = tarjeta.numero; // Usamos el número de tarjeta como valor
+                    option.textContent = `Tarjeta ${tarjeta.numero} - ${tarjeta.nombre}`;
+                    selectTarjeta.appendChild(option);
+                });
             }
-
-            data.forEach((tarjeta) => {
-                const tarjetaDiv = document.createElement("div");
-                tarjetaDiv.style =
-                    "margin-bottom: 15px; background: #fff59d; padding: 10px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);";
-
-                tarjetaDiv.innerHTML = `
-                    <p><strong>Tarjeta:</strong> ${tarjeta.numero}</p>
-                    <p><strong>Vencimiento:</strong> ${tarjeta.vencimiento}</p>
-                    <p><strong>Nombre:</strong> ${tarjeta.nombre}</p>
-                    <button style="background: red; color: white; padding: 5px 10px; border: none; border-radius: 5px; cursor: pointer;" onclick="eliminarTarjeta('${tarjeta.numero}')">Eliminar</button>
-                `;
-
-                contenedor.appendChild(tarjetaDiv);
-            });
         })
-        .catch((error) => {
-            console.error("Error al cargar tarjetas:", error);
-            
-        });
+        .catch(error => console.error("Error al cargar tarjetas:", error));
 }
 
 
+
+
+// Función para eliminar una tarjeta
 function eliminarTarjeta(numero) {
-    if (!confirm("¿Estás seguro de que quieres eliminar esta tarjeta?")) {
-        return;
-    }
+    if (!confirm("¿Estás seguro de que quieres eliminar esta tarjeta?")) return;
 
     fetch("eliminarTarjetas.php", {
         method: "POST",
-        headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
-        },
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: `numero=${numero}`,
     })
-        .then((response) => response.json())
-        .then((data) => {
+        .then(response => response.json())
+        .then(data => {
             if (data.status === "success") {
                 alert(data.message);
-                cargarTarjetas(); // Actualiza la lista después de eliminar
+                cargarTarjetas();
             } else {
                 alert(`Error: ${data.message}`);
             }
         })
-        .catch((error) => {
-            console.error("Error al eliminar tarjeta:", error);
-            alert("Hubo un problema al eliminar la tarjeta. Revisa la consola.");
-        });
+        .catch(error => console.error("Error al eliminar tarjeta:", error));
 }
 
+// Función para cargar las facturas
+function cargarFacturas() {
+    fetch("obtenerFacturas.php")
+        .then(response => response.json())
+        .then(data => {
+            console.log("Facturas cargadas:", data);
+            const listaPendientes = document.getElementById("listaPendientes");
+            const selectFactura = document.getElementById("factura");
+            const estadoCuenta = document.getElementById("estadoCuenta");
 
+            // Validación para evitar errores si los elementos no existen
+            if (!listaPendientes || !selectFactura || !estadoCuenta) {
+                console.warn("Elementos de facturación no encontrados. No se ejecuta cargarFacturas().");
+                return;
+            }
 
+            listaPendientes.innerHTML = "";
+            selectFactura.innerHTML = "";
+            estadoCuenta.innerHTML = "";
 
-// Llama a cargarTarjetas al cargar la página
-document.addEventListener("DOMContentLoaded", cargarTarjetas);
+            let totalPendiente = 0;
+            let totalPagado = 0;
+            let ultimoPago = "N/A";
 
+            data.forEach(factura => {
+                const estadoFactura = factura.estado || "Pendiente"; // Valor predeterminado
+                const li = document.createElement("li");
+                li.textContent = `Factura #${factura.factura_id} - ₡${factura.monto} - ${factura.tipo_examen} - ${factura.fecha_examen} - ${factura.provincia} - Estado: ${estadoFactura}`;
+                listaPendientes.appendChild(li);
 
+                if (estadoFactura === "Pendiente") {
+                    totalPendiente += parseFloat(factura.monto);
+                    const option = document.createElement("option");
+                    option.value = factura.factura_id;
+                    option.textContent = `Factura #${factura.factura_id} - ₡${factura.monto}`;
+                    selectFactura.appendChild(option);
+                } else if (estadoFactura === "Pagada") {
+                    totalPagado += parseFloat(factura.monto);
+                    ultimoPago = factura.fecha_pago || "N/A";
+                }
+            });
 
-// Función para ocultar el formulario
-function ocultarFormularioAgregar() {
-    document.getElementById("agregarForm").style.display = "none";
+            estadoCuenta.innerHTML = `
+                <li>Total Pendiente: ₡${totalPendiente}</li>
+                <li>Total Pagado: ₡${totalPagado}</li>
+                <li>Último Pago: ${ultimoPago}</li>
+            `;
+
+            if (selectFactura.options.length === 0) {
+                selectFactura.innerHTML = '<option value="">No hay facturas pendientes</option>';
+                document.getElementById("formPagar").querySelector('button[type="submit"]').disabled = true;
+            } else {
+                document.getElementById("formPagar").querySelector('button[type="submit"]').disabled = false;
+            }
+        })
+        .catch(error => console.error("Error al cargar facturas:", error));
 }
+
+// Función para procesar el pago de una factura
+function procesarPago(event) {
+    event.preventDefault();
+
+    const facturaId = document.getElementById("factura").value;
+
+    if (!facturaId) {
+        alert("No hay facturas pendientes para pagar.");
+        return;
+    }
+
+    fetch("pagarFactura.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: `factura_id=${facturaId}`,
+    })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === "success") {
+                alert(data.message);
+                cargarFacturas();
+            } else {
+                alert(`Error: ${data.message}`);
+            }
+        })
+        .catch(error => console.error("Error al procesar el pago:", error));
+}
+
+// Ejecuta solo si los elementos existen
+document.addEventListener("DOMContentLoaded", function () {
+    if (document.getElementById("listaPendientes")) {
+        cargarFacturas();
+    }
+    if (document.getElementById("metodosPago")) {
+        cargarTarjetas();
+    }
+});

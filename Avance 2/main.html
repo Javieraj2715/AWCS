@@ -39,25 +39,24 @@
         <p>Selecciona una de las opciones de la barra de navegación para continuar.</p>
         <div id="result" class="result"></div> <!-- Contenedor para mostrar la selección -->
     </main>
-
-    <div class="carousel">
-        <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
-        <div class="carousel-images">
-            <div class="carousel-image">
-                <img src="https://media.istockphoto.com/id/1493574434/es/foto/el-coche-se-precipita-a-lo-largo-de-la-carretera-al-atardecer-vista-lateral-de-ángulo-bajo.jpg?s=612x612&w=0&k=20&c=ShzqUhviox4jicYi8z1qIfBJRk7KGKsd23fct6wrGUI="
-                    alt="Descripción de la imagen 1">
-            </div>
-            <div class="carousel-image">
-                <img src="https://media.istockphoto.com/id/509360412/es/vector/carretera-señales-y-símbolos.jpg?s=612x612&w=0&k=20&c=XC8PJHV06rRTTYNK4yRgOX6Y3GLmeh4EbVsKcNMJDl4="
-                    alt="Descripción de la imagen 2">
-            </div>
-            <div class="carousel-image">
-                <img src="https://img.freepik.com/vector-gratis/ilustracion-hombre-analizando-lista-comprobacion_23-2148079799.jpg"
-                    alt="Descripción de la imagen 3">
+    <div class="carousel-container">
+        <button class="carousel-button prev" onclick="moveSlide(-1)">&#10094;</button>
+        <div class="carousel">
+            <div class="carousel-images">
+                <div class="carousel-image">
+                    <img src="https://media.istockphoto.com/id/1493574434/es/foto/el-coche-se-precipita-a-lo-largo-de-la-carretera-al-atardecer-vista-lateral-de-ángulo-bajo.jpg?s=612x612&w=0&k=20&c=ShzqUhviox4jicYi8z1qIfBJRk7KGKsd23fct6wrGUI=" alt="Imagen 1">
+                </div>
+                <div class="carousel-image">
+                    <img src="https://media.istockphoto.com/id/509360412/es/vector/carretera-señales-y-símbolos.jpg?s=612x612&w=0&k=20&c=XC8PJHV06rRTTYNK4yRgOX6Y3GLmeh4EbVsKcNMJDl4=" alt="Imagen 2">
+                </div>
+                <div class="carousel-image">
+                    <img src="https://img.freepik.com/vector-gratis/ilustracion-hombre-analizando-lista-comprobacion_23-2148079799.jpg" alt="Imagen 3">
+                </div>
             </div>
         </div>
-        <button class="next" onclick="moveSlide(1)">&#10095;</button>
+        <button class="carousel-button next" onclick="moveSlide(1)">&#10095;</button>
     </div>
+    
     <script src="carrusel.js"></script>
   
     <script src="script.js" defer></script>

@@ -1,0 +1,148 @@
+/* ---- Estilo General ---- */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* ---- Barra de Navegación ---- */
+.navbar {
+    background-color: #f0c14b;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.nav-logo h1 {
+    margin: 0;
+    font-size: 1.5em;
+    color: #333;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 15px;
+}
+
+.nav-item {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.nav-item:hover {
+    color: #0073e6;
+}
+
+/* ---- Encabezados ---- */
+h2 {
+    text-align: center;
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+h2::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: #f0c14b;
+    margin: 10px auto 0;
+    border-radius: 5px;
+}
+
+/* ---- Secciones Centradas ---- */
+section {
+    max-width: 800px;
+    margin: 20px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* ---- Textareas ---- */
+textarea {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: none;
+    box-sizing: border-box;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: #0073e6;
+    box-shadow: 0 0 5px rgba(0, 115, 230, 0.5);
+}
+
+/* ---- Botones ---- */
+button {
+    display: inline-block;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* ---- Sección de Soporte y Retroalimentación ---- */
+div.support-section,
+div.feedback-section {
+    text-align: center;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+div.support-section h2,
+div.feedback-section h2 {
+    margin-bottom: 10px;
+}
+
+div.support-section i,
+div.feedback-section i {
+    display: block;
+    margin-bottom: 15px;
+    color: #555;
+    font-style: italic;
+}
+
+/* ---- Responsividad ---- */
+@media (max-width: 768px) {
+    section {
+        padding: 15px;
+    }
+
+    button {
+        width: 100%;
+    }
+}

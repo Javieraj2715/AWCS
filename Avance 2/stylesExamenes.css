@@ -107,6 +107,10 @@ button:hover {
     margin-right: 5px;
   }
   
+  .user-icon {
+    margin-right: 5px;
+  }
+  
   /* Estilo del contenido principal */
   .content {
     padding: 40px;

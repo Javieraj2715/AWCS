@@ -1,132 +1,229 @@
-/* Reiniciar márgenes y fuentes */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
-  }
-  
-  /* Estilo de la barra de navegación */
-  .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 30px;
-    background-color: #EBD371;
-    color: #000000;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  .nav-logo h1 {
-    font-size: 1.5rem;
-  }
-  
-  .nav-menu {
-    display: flex;
-    gap: 20px;
-  }
-  
-  .nav-item {
-    color: #000000;
-    text-decoration: none;
-    font-size: 1rem;
-    padding: 8px 12px;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-  }
-  
-  .nav-item:hover {
-    background-color: #AE8342;
-  }
-  
-  .user-icon {
-    margin-right: 5px;
-  }
-  
-  /* Estilo del contenido principal */
-  .content {
-    padding: 40px;
-    text-align: center;
-  }
-  
-  .content h2 {
-    font-size: 2rem;
-    color: #AE8342;
-    margin-bottom: 20px;
-  }
-  
-  .content p {
-    font-size: 1.2rem;
-    color: #555;
-  }
-  
-  .carousel {
-    position: relative;
-    max-width: 400px; /* Ajusta el ancho máximo del carrusel */
-    margin: auto;
-    overflow: hidden;
-    border-radius: 10px;
-  }
-
-  .carousel-images {
-    display: flex;
-    transition: transform 0.5s ease;
-  }
-
-  .carousel-image {
-    min-width: 100%;
-    transition: opacity 1s ease;
-  }
-
-  .carousel-image img {
-    width: 100%;
-    border-radius: 10px;
-  }
-
-  /* Botones de navegación */
-  .prev, .next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(255, 255, 255, 0.7);
-    border: none;
-    cursor: pointer;
-    padding: 10px;
-    border-radius: 50%;
-    font-size: 18px;
-    z-index: 10;
-  }
-
-  .prev {
-    left: 10px;
-  }
-
-  .next {
-    right: 10px;
-  }
-
-  .hidden-options {
-    display: none; /* Oculta el elemento */
+/* ---- Estilo General ---- */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+  color: #333;
+  line-height: 1.6;
 }
 
+/* ---- Barra de Navegación ---- */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: #EBD371;
+  color: #000000;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.nav-logo h1 {
+  font-size: 1.5rem;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-item {
+  color: #000000;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 8px 12px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.nav-item:hover {
+  background-color: #AE8342;
+}
+
+.user-icon {
+  margin-right: 5px;
+}
+
+/* Contenedor principal del carrusel y botones */
+.carousel-container {
+  display: flex; /* Organiza los elementos en una fila */
+  align-items: center; /* Centra verticalmente los elementos */
+  justify-content: center; /* Centra horizontalmente el carrusel y botones */
+  gap: 10px; /* Espacio entre el carrusel y los botones */
+  margin: 20px auto; /* Centra el contenedor en la página */
+}
+
+/* Botones del carrusel */
+.carousel-button {
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.carousel-button:hover {
+  background-color: #218838;
+}
+
+/* Estilo del carrusel */
+.carousel {
+  position: relative;
+  max-width: 400px; /* Ajusta el ancho máximo */
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.hidden-options {
+  display: none; /* Oculta el elemento por defecto */
+}
+
+
+.carousel-images {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.carousel-image {
+  min-width: 100%;
+}
+
+.carousel-image img {
+  width: 100%;
+  display: block;
+  border-radius: 10px;
+}
+
+
+/* ---- Encabezados ---- */
+h2 {
+  text-align: center;
+  font-size: 1.8em;
+  color: #333;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background-color: #f0c14b;
+  margin: 10px auto 0;
+  border-radius: 5px;
+}
+
+/* ---- Secciones Centradas ---- */
+section {
+  max-width: 800px;
+  margin: 20px auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* ---- Textareas ---- */
+textarea {
+  width: 100%;
+  height: 100px;
+  padding: 10px;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  resize: none;
+  box-sizing: border-box;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+textarea:focus {
+  outline: none;
+  border-color: #0073e6;
+  box-shadow: 0 0 5px rgba(0, 115, 230, 0.5);
+}
+
+/* ---- Botones ---- */
+button {
+  display: inline-block;
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #218838;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* ---- Sección de Soporte y Retroalimentación ---- */
+div.support-section,
+div.feedback-section {
+  text-align: center;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+div.support-section h2,
+div.feedback-section h2 {
+  margin-bottom: 10px;
+}
+
+div.support-section i,
+div.feedback-section i {
+  display: block;
+  margin-bottom: 15px;
+  color: #555;
+  font-style: italic;
+}
+
+/* ---- Responsividad ---- */
+@media (max-width: 768px) {
+  section {
+      padding: 15px;
+  }
+
+  button {
+      width: 100%;
+  }
+}
+
+
+
 .exam-option {
-    background-color: #AE8342; /* Color de fondo */
-    color: white; /* Color del texto */
-    padding: 15px; /* Espaciado interno */
-    margin: 10px 0; /* Margen superior e inferior */
-    border-radius: 5px; /* Bordes redondeados */
-    cursor: pointer; /* Cursor tipo puntero */
-    text-align: center; /* Centrar el texto */
-    transition: background-color 0.3s; /* Transición suave */
+  background-color: #AE8342; /* Color de fondo */
+  color: white; /* Color del texto */
+  padding: 15px; /* Espaciado interno */
+  margin: 10px 0; /* Margen superior e inferior */
+  border-radius: 5px; /* Bordes redondeados */
+  cursor: pointer; /* Cursor tipo puntero */
+  text-align: center; /* Centrar el texto */
+  transition: background-color 0.3s; /* Transición suave */
 }
 
 .exam-option:hover {
-    background-color: #808b29; /* Color de fondo al pasar el mouse */
+  background-color: #808b29; /* Color de fondo al pasar el mouse */
 }
 
 .result {
-    margin-top: 20px;
-    font-size: 18px;
+  margin-top: 20px;
+  font-size: 18px;
 }
-
-

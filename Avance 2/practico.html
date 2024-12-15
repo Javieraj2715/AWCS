@@ -35,7 +35,10 @@
 
     <div class="container">
         <h1>Matricular Examen Practico</h1>
-        <form id="examForm" action="enviarEmailPractico.php" method="POST">
+        <form id="examForm" action="procesarMatricula.php" method="POST">
+            <!-- Añadir este input oculto -->
+            <input type="hidden" id="tipo" name="tipo" value="practico">
+
             <div class="form-group">
                 <label for="name">Nombre completo:</label>
                 <input type="text" id="name" name="name" placeholder="Ingresa tu nombre completo" required>
@@ -46,7 +49,8 @@
             </div>
             <div class="form-group">
                 <label for="id">Número de identificación:</label>
-                <input type="text" id="id" name="id" placeholder="Ingresa tu número de cédula o identificación" required>
+                <input type="text" id="id" name="id" placeholder="Ingresa tu número de cédula o identificación"
+                    required>
             </div>
             <div class="form-group">
                 <label for="province">Provincia:</label>
@@ -77,17 +81,17 @@
             </div>
             <button type="submit">Confirmar Inscripción</button>
         </form>
-        
+
         <div class="confirmation" id="confirmation" style="display: none;">
             ¡Inscripción completada con éxito! Revisa tu correo para más detalles.
         </div>
     </div>
 
     <script>
-       document.getElementById("examForm").addEventListener("submit", function(event) {
-        
-           document.getElementById("confirmation").style.display = "block";
-       });
+        document.getElementById("examForm").addEventListener("submit", function (event) {
+
+            document.getElementById("confirmation").style.display = "block";
+        });
     </script>
 </body>
 

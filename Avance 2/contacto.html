@@ -43,29 +43,24 @@
     
     <br><br>
 
-    <!-- Espacio de soporte tecnico -->
-    <div style="text-align: center;">
-        <h2 style="text-align: center;">Soporte Técnico</h2>
-        <i style="text-align: center;">Si tiene problemas técnicos repórtelos en el espacio a continuación.
-        </i><br>
-        <textarea id="textarea_soporte_tecnico" placeholder="Describa su problema..." wrap="soft"></textarea><br>
-        <button id="boton_soporte" onclick="onClickSoporte()">Reportar</button>
-        <br>
-        <b id="output_soporte" style="text-align: center; display: none;"></b>
-    </div>
+   <!-- Sección de Soporte Técnico -->
+<div class="support-section">
+    <h2>Soporte Técnico</h2>
+    <i>Si tiene problemas técnicos repórtelos en el espacio a continuación.</i>
+    <textarea id="textarea_soporte_tecnico" placeholder="Describa su problema..." wrap="soft"></textarea>
+    <button id="boton_soporte" onclick="onClickSoporte()">Reportar</button>
+    <b id="output_soporte" style="display: none;"></b>
+</div>
 
-    <br><br>
+<!-- Sección de Retroalimentación -->
+<div class="feedback-section">
+    <h2>Retroalimentación</h2>
+    <i>Si tiene una sugerencia o retroalimentación para mejorar la página web descríbala en el espacio a continuación.</i>
+    <textarea id="textarea_retroalimentacion" placeholder="Describa su idea o retroalimentación..." wrap="soft"></textarea>
+    <button id="boton_retro" onclick="onClickRetroalimentacion()">Enviar Retroalimentación</button>
+    <b id="output_retroalimentacion" style="display: none;"></b>
+</div>
 
-    <!-- Espacio de retroalimentacion -->
-    <div style="text-align: center;">
-        <h2 style="text-align: center;">Retroalimentación</h2>
-        <i style="text-align: center;">Si tiene una sugerencia o retroalimentación para mejorar la página web descríbala en el espacio a continuación.
-        </i><br>
-        <textarea id="textarea_retroalimentacion" placeholder="Describa su idea o retroalimentación..." wrap="soft" cols="20"></textarea><br>
-        <button id="boton_retro" onclick="onClickRetroalimentacion()">Enviar Retroalimentación</button>
-        <br>
-        <b id="output_retroalimentacion" style="text-align: center; display: none;"></b>
-    </div>
 
     <script>
         //JavaScript

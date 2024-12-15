@@ -1,14 +1,13 @@
+
+
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Facturacion</title>
+    <title>Facturación</title>
     <link rel="stylesheet" href="stylesFacturacion.css">
-    <script src="script.js" defer></script> <!-- Incluye tu archivo JavaScript aquí -->
+     <!-- Asegúrate de que script.js contiene las funciones necesarias -->
 </head>
-
 <body>
     <!-- Barra de Navegación -->
     <header class="navbar">
@@ -18,7 +17,7 @@
         <nav class="nav-menu">
             <a href="#" class="nav-item" onclick="irAInicio()">Inicio</a>
             <a href="#" class="nav-item" onclick="toggleOptions()">Citas</a>
-            <a href="#" style="background-color: rgb(254, 235, 190);"class="nav-item" onclick="irAFacturacion()">Facturacion</a>
+            <a href="#" class="nav-item" onclick="irAFacturacion()" style="background-color: rgb(254, 235, 190);">Facturación</a>
             <a href="#" class="nav-item" onclick="irAContacto()">Contacto</a>
             <a href="#" class="nav-item" onclick="irAMiCuenta()">
                 <span class="user-icon">👤</span> Mi Cuenta
@@ -27,63 +26,64 @@
     </header>
 
     <!-- Opciones de Citas -->
+    <script src="citas.js"></script>
     <div id="citas-options" class="hidden-options">
         <div class="exam-option" onclick="handleExamSelection('practico')">Examen Práctico</div>
         <div class="exam-option" onclick="handleExamSelection('teorico')">Examen Teórico</div>
     </div>
 
     <!-- Contenido Principal -->
-    <body>
+    <main>
         <header>
             <h1>Sistema de Facturación</h1>
         </header>
-        <nav>
-            <a href="#pendientes">Lista de Pendientes</a>
-            <a href="#estado-cuenta">Estado de Cuenta</a>
-            <a href="#pagar">Pagar Ahora</a>
-        </nav>
-        <main>
-            <section id="pendientes">
-                <h2>Lista de Pendientes</h2>
-                <p>Aquí puedes ver todas las facturas pendientes de pago.</p>
-                <ul>
-                    <li>Factura #001 - ₡10000</li>
-                    <li>Factura #002 - ₡15000</li>
-                    <li>Factura #003 - ₡20000</li>
-                </ul>
-            </section>
+        
+        <section id="pendientes">
+            <h2>Lista de Pendientes</h2>
+            <p>Aquí puedes ver todas las facturas pendientes de pago.</p>
+            <ul id="listaPendientes">
+                <!-- Las facturas pendientes se cargarán aquí dinámicamente -->
+            </ul>
+        </section>
+
+        <section id="estado-cuenta">
+            <h2>Estado de Cuenta</h2>
+            <p>Consulta tu estado de cuenta general:</p>
+            <ul id="estadoCuenta">
+                <!-- El estado de cuenta se cargará aquí dinámicamente -->
+            </ul>
+        </section>
+
+        <section id="pagar">
+            <h2>Pagar Ahora</h2>
+            <form id="formPagar" onsubmit="procesarPago(event)">
+                <label for="factura">Selecciona Factura:</label>
+                <select id="factura" name="factura">
+                    <!-- Facturas dinámicas -->
+                </select>
+                <br><br>
+        
+                <label for="tarjeta">Selecciona Tarjeta:</label>
+                <select id="tarjeta" name="tarjeta">
+                    <!-- Tarjetas dinámicas -->
+                </select>
+                <br><br>
+        
+                <button type="submit">Pagar</button>
+            </form>
+        </section>
+        
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                cargarTarjetas("tarjetaDropdown");
+                cargarFacturas(); // Sigue cargando facturas normalmente
+            });
+        </script>
+        
+        
+
+        
+    </main>
     
-            <section id="estado-cuenta">
-                <h2>Estado de Cuenta</h2>
-                <p>Consulta tu estado de cuenta general:</p>
-                <ul>
-                    <li>Total Pendiente: ₡45000</li>
-                    <li>Total Pagado: ₡60000</li>
-                    <li>Último Pago: 12/11/2024</li>
-                </ul>
-            </section>
-    
-            <section id="pagar">
-                <h2>Pagar Ahora</h2>
-                <p>Selecciona una factura para pagar:</p>
-                <form action="#" method="POST">
-                    <label for="factura">Selecciona Factura:</label>
-                    <select id="factura" name="factura">
-                        <option value="001">Factura #001 - ₡10000</option>
-                        <option value="002">Factura #002 - ₡15000</option>
-                        <option value="003">Factura #003 - ₡20000</option>
-                    </select>
-                    <br><br>
-                    <button type="submit">Pagar</button>
-                </form>
-            </section>
-        </main>
-    </body>
-
-
-
-
-    <script src="citas.js"></script>
+    <script src="script.js" defer></script>  
 </body>
-
-</html>
