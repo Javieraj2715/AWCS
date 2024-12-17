@@ -170,6 +170,15 @@ button:disabled {
   cursor: not-allowed;
 }
 
+main.content {
+  text-align: center; /* Centra el texto de los hijos */
+  display: flex;      /* Usa flexbox para centrar elementos en ambas direcciones */
+  flex-direction: column; /* Asegura que los elementos se apilen verticalmente */
+  align-items: center; /* Centra horizontalmente */
+  
+}
+
+
 /* ---- Sección de Soporte y Retroalimentación ---- */
 div.support-section,
 div.feedback-section {
@@ -205,7 +214,6 @@ div.feedback-section i {
       width: 100%;
   }
 }
-
 
 
 .exam-option {

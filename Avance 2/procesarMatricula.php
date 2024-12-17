@@ -64,18 +64,18 @@ if (empty($tipoExamen)) {
 
         $mail->setFrom('javieraj2715@gmail.com', 'Exámenes de Conducir');
         $mail->addAddress($email, $name);
-
+        $mail->CharSet = 'UTF-8';
         $mail->isHTML(true);
-        $mail->Subject = 'Confirmación de inscripción al examen ' . $tipoExamen;
+        $mail->Subject = 'Confirmación de inscripción al exámen ' . $tipoExamen;
         $mail->Body = "
             ¡Hola $name!<br><br>
-            Has sido inscrito exitosamente en el examen $tipoExamen.<br><br>
-            <strong>Detalles del examen:</strong><br>
+            Has sido inscrito exitosamente en el exámen $tipoExamen.<br><br>
+            <strong>Detalles del exámen:</strong><br>
             Número de identificación: $id<br>
             Provincia: $province<br>
-            Fecha del examen: $date<br>
+            Fecha del exámen: $date<br>
             Horario: $time<br><br>
-            ¡Nos vemos en tu examen!<br><br>Atentamente,<br>El equipo de Exámenes de Conducir
+            ¡Nos vemos en tu exámen!<br><br>Atentamente,<br>El equipo de Exámenes de Conducir
         ";
 
         if (!$mail->send()) {
